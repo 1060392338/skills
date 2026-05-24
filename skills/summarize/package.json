@@ -1,0 +1,14 @@
+{
+  "name": "summarize",
+  "version": "1.0.0",
+  "description": "Summarize or extract text/transcripts from URLs, podcasts, and local files (great fallback for “transcribe this YouTube/video”).",
+  "author": "OpenClaw Team",
+  "license": "MIT",
+  "created": "2026-02-23T11:46:00.712141",
+  "type": "system-skill",
+  "files": [
+    "SKILL.md"
+  ],
+  "file_count": 1,
+  "source": "OpenClaw Official"
+}

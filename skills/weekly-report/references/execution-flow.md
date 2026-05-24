@@ -1,0 +1,87 @@
+# 执行流程
+
+## 第零步：确认必要参数
+
+**重要**：在收集数据前，必须先确认以下两个关键参数。
+
+### 0.1 确认提交人
+
+1. 检查用户是否指定了作者
+2. 如未指定，获取当前 Git 配置的用户名和邮箱
+3. **询问用户确认**：是否使用该用户名生成周报
+
+```bash
+# 获取当前 Git 用户信息
+git config user.name
+git config user.email
+```
+
+### 0.2 确认详细程度
+
+**必须询问用户**选择周报的详细程度：
+
+- **简洁版**（默认）：仅包含主要工作部分
+- **标准版**：包含完整分类
+- **详细版**：包含每个 commit 的详细信息
+
+**确认对话示例**：
+> 检测到当前 Git 用户为 **zhangsan** (zhangsan@example.com)
+>
+> 请确认以下选项：
+> 1. 是否为该用户生成周报？或指定其他用户名/邮箱？
+> 2. 请选择周报详细程度：简洁版 / 标准版 / 详细版？
+
+## 第一步：收集 Git 数据
+
+使用 `--author` 参数过滤特定提交人的记录：
+
+1. **获取提交记录**（默认最近 7 天）
+```bash
+# 使用用户名过滤
+git log --since="7 days ago" --author="用户名" --pretty=format:"%h|%ad|%s" --date=short
+
+# 或使用邮箱过滤（更精确）
+git log --since="7 days ago" --author="user@email.com" --pretty=format:"%h|%ad|%s" --date=short
+```
+
+2. **获取代码变更统计**
+```bash
+git log --since="7 days ago" --author="用户名" --stat --pretty=format:"%h %s"
+```
+
+3. **获取变更文件列表**
+```bash
+git log --since="7 days ago" --author="用户名" --name-status --pretty=format:""
+```
+
+4. **按日期分组统计**
+```bash
+git log --since="7 days ago" --author="用户名" --format="%ad" --date=short | sort | uniq -c
+```
+
+## 第二步：分析与分类
+
+将收集的数据按以下维度分类：
+
+1. **工作类型分类**（根据 commit message 关键词）
+   - 🚀 **新功能**: feat, add, new, implement, 新增, 添加, 实现
+   - 🐛 **问题修复**: fix, bug, repair, 修复, 解决
+   - ♻️ **代码重构**: refactor, optimize, improve, 重构, 优化
+   - 📝 **文档更新**: docs, readme, comment, 文档, 注释
+   - 🎨 **样式调整**: style, css, ui, 样式, 界面
+   - ✅ **测试相关**: test, spec, 测试
+   - 🔧 **配置变更**: config, build, ci, 配置
+   - 📦 **依赖更新**: deps, package, upgrade, 依赖, 升级
+
+2. **影响范围分析**
+   - 统计修改的文件数量
+   - 统计代码行数变更（新增/删除）
+   - 识别主要修改的模块/目录
+
+3. **时间分布**
+   - 按天统计提交数量
+   - 识别高产出日期
+
+## 第三步：生成周报
+
+根据分析结果，按照 [周报输出格式](./output-format.md) 生成最终报告。
