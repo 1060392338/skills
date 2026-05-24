@@ -1,0 +1,81 @@
+{
+  "schema_version": "evolve-v1",
+  "run_at": "2026-04-08T09:36:15.138244",
+  "dry_run": false,
+  "observer": {
+    "new_observations": 0,
+    "total_processed": 5,
+    "by_category": {}
+  },
+  "instincts": {
+    "total": 5,
+    "high_confidence": 2,
+    "medium_confidence": 1,
+    "low_confidence": 2,
+    "top_5": [
+      {
+        "id": "config_change-",
+        "domain": "config_change",
+        "confidence": 0.547,
+        "trigger": "频道配置"
+      },
+      {
+        "id": "optimization-",
+        "domain": "optimization",
+        "confidence": 0.547,
+        "trigger": "性能优化"
+      },
+      {
+        "id": "error_fix-mimo",
+        "domain": "error_fix",
+        "confidence": 0.3667,
+        "trigger": "MiMo 模型故障诊断"
+      },
+      {
+        "id": "config_change-1",
+        "domain": "config_change",
+        "confidence": 0.05,
+        "trigger": "1. 小红书技能安装"
+      },
+      {
+        "id": "request-",
+        "domain": "request",
+        "confidence": 0.05,
+        "trigger": "待办"
+      }
+    ]
+  },
+  "recommendations": {
+    "total": 3,
+    "memory_updates": 3,
+    "skill_suggestions": 0,
+    "items": [
+      {
+        "type": "memory_update",
+        "section": "配置备忘",
+        "content": "- 频道配置: - **飞书机器人修复**: 发现 `openclaw.json` 缺少 `channels.feishu` 配置，手动写入 appId/appSecret/domain/connectionMode，重启后连接成功\n- **微信机器人配置**: openclaw-weixin 插件已安装，通过 doctor --fix 自动配置，登录后连接成功\n- 两个频道状态：Feishu OK，WeChat",
+        "instinct_id": "config_change-",
+        "confidence": 0.547
+      },
+      {
+        "type": "memory_update",
+        "section": "已优化",
+        "content": "- 性能优化: - **Skills 精简**: 从 ~30 个 skills 减少到 17 个\n- 禁用了 15 个不常用的 skills：a-stock-screener, agent-browser, crypto-agent-trading, trading-strategist, xiaohongshu×4, RedBookSkills, zimage-generation, turix-cua, wi (效果 55%)",
+        "instinct_id": "optimization-",
+        "confidence": 0.547
+      },
+      {
+        "type": "memory_update",
+        "section": "常见问题",
+        "content": "- **MiMo 模型故障诊断**: **问题：** 用户报告切换小米模型（MiMo）后无反应 | **诊断过程：** | 1. 检查了 `auth-profiles.json`，发现缺少 OpenRouter API key (置信度 37%, 5次验证)",
+        "instinct_id": "error_fix-mimo",
+        "confidence": 0.3667
+      }
+    ]
+  },
+  "apply": {
+    "applied": 2,
+    "skill_suggestions": 0,
+    "suggestion_details": []
+  }
+}

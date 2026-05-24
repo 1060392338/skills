@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "instincts": [
+    {
+      "id": "config_change-1",
+      "domain": "config_change",
+      "trigger": "1. 小红书技能安装",
+      "action": "安装了多个小红书相关技能： | xiaohongshu-note-analyzer (笔记分析) | xiaohongshu-images (图片处理)",
+      "confidence": 0.05,
+      "evidence_count": 5,
+      "success_count": 0,
+      "failure_count": 5,
+      "first_seen": "2026-03-09",
+      "last_seen": "2026-03-09",
+      "tags": [
+        "skills"
+      ],
+      "related_ids": [
+        "2026-03-09-config_change-1"
+      ],
+      "updated_at": "2026-04-08T09:36:15.141244"
+    },
+    {
+      "id": "config_change-",
+      "domain": "config_change",
+      "trigger": "频道配置",
+      "action": "- **飞书机器人修复**: 发现 `openclaw.json` 缺少 `channels.feishu` 配置，手动写入 appId/appSecret/domain/connectionMode，重启后连接成功\n- **微信机器人配置**: openclaw-weixin 插件已安装，通过 doctor --fix 自动配置，登录后连接成功\n- 两个频道状态：Feishu OK，WeChat",
+      "confidence": 0.547,
+      "evidence_count": 5,
+      "success_count": 5,
+      "failure_count": 0,
+      "first_seen": "2026-04-03",
+      "last_seen": "2026-04-03",
+      "tags": [
+        "飞书",
+        "wechat",
+        "feishu",
+        "微信"
+      ],
+      "related_ids": [
+        "2026-04-03-config_change-"
+      ],
+      "updated_at": "2026-04-08T09:36:15.141244"
+    },
+    {
+      "id": "error_fix-mimo",
+      "domain": "error_fix",
+      "trigger": "MiMo 模型故障诊断",
+      "action": "**问题：** 用户报告切换小米模型（MiMo）后无反应 | **诊断过程：** | 1. 检查了 `auth-profiles.json`，发现缺少 OpenRouter API key",
+      "confidence": 0.3667,
+      "evidence_count": 5,
+      "success_count": 5,
+      "failure_count": 0,
+      "first_seen": "2026-03-22",
+      "last_seen": "2026-03-22",
+      "tags": [
+        "api",
+        "模型"
+      ],
+      "related_ids": [
+        "2026-03-22-error_fix-mimo"
+      ],
+      "updated_at": "2026-04-08T09:36:15.141244"
+    },
+    {
+      "id": "optimization-",
+      "domain": "optimization",
+      "trigger": "性能优化",
+      "action": "- **Skills 精简**: 从 ~30 个 skills 减少到 17 个\n- 禁用了 15 个不常用的 skills：a-stock-screener, agent-browser, crypto-agent-trading, trading-strategist, xiaohongshu×4, RedBookSkills, zimage-generation, turix-cua, wi",
+      "confidence": 0.547,
+      "evidence_count": 5,
+      "success_count": 5,
+      "failure_count": 0,
+      "first_seen": "2026-04-03",
+      "last_seen": "2026-04-03",
+      "tags": [
+        "skill",
+        "飞书",
+        "skills"
+      ],
+      "related_ids": [
+        "2026-04-03-optimization-"
+      ],
+      "updated_at": "2026-04-08T09:36:15.141244"
+    },
+    {
+      "id": "request-",
+      "domain": "request",
+      "trigger": "待办",
+      "action": "BOOTSTRAP.md 仍存在，需要完成初始化（身份设定、SOUL.md 定制等） | 用户名/时区等 USER.md 信息待收集 | 飞书插件有 duplicate plugin 警告（bundled + extension 冲突）",
+      "confidence": 0.05,
+      "evidence_count": 5,
+      "success_count": 0,
+      "failure_count": 5,
+      "first_seen": "2026-04-03",
+      "last_seen": "2026-04-03",
+      "tags": [
+        "飞书"
+      ],
+      "related_ids": [
+        "2026-04-03-request-"
+      ],
+      "updated_at": "2026-04-08T09:36:15.141244"
+    }
+  ],
+  "updated_at": "2026-04-08T09:36:15.142245"
+}
